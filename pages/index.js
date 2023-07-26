@@ -1,14 +1,21 @@
-import Header from '@/components/Header/Header';
-import styles from '../styles/Index.module.css';
-import SearchBar from '@/components/SearchBar/SearchBar';
-import BannerCarousel from '@/components/BannerCarousel/BannerCarousel';
+import Header from "@/components/Header/Header";
+import styles from "../styles/Index.module.css";
+import SearchBar from "@/components/SearchBar/SearchBar";
+import BannerCarousel from "@/components/BannerCarousel/BannerCarousel";
+import Outlets from "@/components/Outlets/Outlets";
+import { useState } from "react";
 
 const Index = () => {
-  return ( <div className={styles.container}>
+  const [searchQuery, setSearchQuery] = useState("");
+
+  return (
+    <div className={styles.container}>
       <Header />
-      <SearchBar/>
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <BannerCarousel />
-  </div> );
-}
- 
+      <Outlets />
+    </div>
+  );
+};
+
 export default Index;
