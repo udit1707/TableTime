@@ -1,4 +1,5 @@
 import { MdKeyboardArrowDown } from "react-icons/md";
+
 import styles from "./Header.module.css";
 
 const Header = ({ location = "Madiwala New Extension, 1st Stage" }) => {
@@ -7,7 +8,7 @@ const Header = ({ location = "Madiwala New Extension, 1st Stage" }) => {
   let locationText = words;
 
   if (address.length > 3) {
-    locationText = words.slice(0,15) + "...";
+    locationText = words.slice(0, 15) + "...";
   }
 
   return (
