@@ -29,9 +29,7 @@ const Index = () => {
     <div className={styles.container}>
       <HeaderWrapper setOpenLocationPicker={setOpenLocationPicker} />
       {openLocationPicker ? (
-        <LocationPickerWrapper
-          setOpenLocationPicker={setOpenLocationPicker}
-        />
+        <LocationPickerWrapper setOpenLocationPicker={setOpenLocationPicker} />
       ) : (
         <>
           <SearchBar

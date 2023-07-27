@@ -1,13 +1,14 @@
 import React, { useCallback, useState } from "react";
-import { GoogleMap, MarkerF, LoadScript } from "@react-google-maps/api";
 import { useDispatch, useSelector } from "react-redux";
+
+import { GoogleMap, MarkerF } from "@react-google-maps/api";
+import secureLocalStorage from "react-secure-storage";
 import {
   locationDataSelector,
   locationLoaderSelector,
 } from "@/selectors/location";
 import { updateLocation } from "@/store/location";
 import { updateOutletDistance } from "@/store/outlets";
-
 import styles from "./LocationPickerWrapper.module.css";
 
 const Map = ({
@@ -44,8 +45,7 @@ const Map = ({
 const LocationPickerWrapper = ({ setOpenLocationPicker }) => {
   const dispatch = useDispatch();
   const { isLoading, loadError } = useSelector(locationLoaderSelector);
-  const { currentLocation, defaultPosition } =
-    useSelector(locationDataSelector);
+  const { currentLocation } = useSelector(locationDataSelector);
   const [markerPosition, setMarkerPosition] = useState({
     ...currentLocation,
   });
@@ -60,9 +60,12 @@ const LocationPickerWrapper = ({ setOpenLocationPicker }) => {
   };
 
   const handleCurrentAddress = () => {
+    const defaultPosition = JSON.parse(
+      secureLocalStorage.getItem("defaultAddress")
+    );
+
     setMarkerPosition(defaultPosition);
     setMapCenter(defaultPosition);
-    dispatch(updateLocation(defaultPosition));
   };
 
   return (

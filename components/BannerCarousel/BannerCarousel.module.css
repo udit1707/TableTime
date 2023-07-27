@@ -1,6 +1,6 @@
 .imgContainer {
   width: 100%;
-  height: 15rem; /* Set the desired height of the carousel container */
+  height: 15rem;
   position: relative;
   overflow: hidden;
   margin-top: 1rem;
@@ -15,14 +15,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateX(-100%); /* Start with all images hidden to the left of the container */
-  transition: transform 0.5s ease-in-out; /* Apply a transition for a smooth slide effect */
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
 }
 
 .carousel.active {
-  transform: translateX(0); /* Slide the active image into view */
+  transform: translateX(0);
 }
 
 .carousel.prev {
-  transform: translateX(100%); /* Slide the previous image from the right to the left */
+  transform: translateX(100%);
 }
