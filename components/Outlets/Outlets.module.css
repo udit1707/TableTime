@@ -1,3 +1,7 @@
 .container {
   @apply flex flex-row flex-wrap items-center justify-between;
 }
+
+.loading {
+  @apply flex justify-center items-center flex-col py-40;
+}
