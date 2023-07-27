@@ -3,8 +3,5 @@
 }
 
 .loading {
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-  padding: 10rem 0;
+  @apply flex justify-center items-center flex-col py-40;
 }
