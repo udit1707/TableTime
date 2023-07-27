@@ -1,49 +1,28 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  @apply flex flex-col mt-4;
   width: 48%;
-  margin-top: 2rem;
 }
 
 .thumbnailContainer {
-  width: 100%;
-  height: 8rem;
-  border-radius: 8px;
+  @apply w-full h-32 rounded-lg;
 }
 
 .thumbnail {
-  object-fit: cover;
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
+  @apply object-cover rounded-lg w-full h-full;
 }
 
 .name {
-  margin-top: 0.3rem;
-  color: #10100e;
-  font-size: 1.2rem;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @apply mt-2 text-black text-base font-medium whitespace-nowrap overflow-hidden overflow-ellipsis;
 }
 
 .footer {
-  margin-top: 0.3rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @apply mt-2 flex flex-row items-center;
 }
 
 .footerText {
-  color: #a7a7a7;
-  font-weight: 300;
-  font-size: 1rem;
+  @apply text-gray-500 font-light text-base;
 }
 
 .dotIcon {
-  color: #a7a7a7;
-  font-weight: 300;
-  font-size: 1.4rem;
-  margin: 0 0.2rem;
+  @apply text-gray-500 font-light text-xl mx-1;
 }

@@ -1,28 +1,15 @@
 .imgContainer {
-  width: 100%;
-  height: 15rem;
-  position: relative;
-  overflow: hidden;
-  margin-top: 1rem;
-  border-radius: 8px;
+  @apply w-full h-40 md:h-60 lg:h-80 xl:h-96 relative overflow-hidden mt-4 rounded-lg;
 }
 
 .carousel {
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
+  @apply w-full h-full object-cover absolute top-0 left-0 transform -translate-x-full transition-transform ease-in-out duration-500;
 }
 
 .carousel.active {
-  transform: translateX(0);
+  @apply transform translate-x-0;
 }
 
 .carousel.prev {
-  transform: translateX(100%);
+  @apply transform translate-x-full;
 }
