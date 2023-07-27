@@ -2,7 +2,9 @@
 
 
 
-https://github.com/udit1707/foodapp-nextJS/assets/43987867/54160080-4627-4d69-811e-a243928fea6b
+https://github.com/udit1707/foodapp-nextJS/assets/43987867/7f6f58ab-7de5-4f12-ac8d-82b1e926c0f3
+
+
 
 
 
