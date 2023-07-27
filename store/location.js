@@ -1,3 +1,5 @@
+import secureLocalStorage from "react-secure-storage";
+
 const GET_LOCATION_INIT = "GET_LOCATION_INIT";
 const GET_LOCATION_SUCCESS = "GET_LOCATION_SUCCESS";
 const GET_LOCATION_ERROR = "GET_LOCATION_ERROR";
@@ -19,6 +21,8 @@ export const getLocation = () => {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         };
+
+        secureLocalStorage.setItem('defaultAddress', JSON.stringify(currentLocation));
 
         dispatch({
           type: GET_LOCATION_SUCCESS,
