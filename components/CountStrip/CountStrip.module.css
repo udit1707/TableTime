@@ -1,0 +1,14 @@
+.container {
+  @apply flex flex-row items-center justify-center mt-4;
+}
+
+.line {
+  @apply border-t w-full;
+  border-color: #a7a7a7;
+}
+
+.text {
+  @apply text-base font-normal uppercase mx-4 whitespace-nowrap tracking-wider;
+  letter-spacing: 0.2rem;
+  color: #a7a7a7
+}

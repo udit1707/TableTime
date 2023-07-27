@@ -10,6 +10,7 @@ import LocationPickerWrapper from "@/components/LocationPickerWrapper/LocationPi
 import { locationDataSelector } from "@/selectors/location";
 import { getLocation } from "@/store/location";
 import HeaderWrapper from "@/components/Header/Header";
+import CountStrip from "@/components/CountStrip/CountStrip";
 
 const Index = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Index = () => {
             setSearchQuery={setSearchQuery}
           />
           <BannerCarousel />
+          <CountStrip />
           <Outlets />
         </>
       )}

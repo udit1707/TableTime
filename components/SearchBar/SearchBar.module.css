@@ -3,15 +3,18 @@
 }
 
 .icon {
-  @apply text-gray-500 text-xl font-medium;
+  @apply text-xl font-medium;
+  color: #a7a7a7;
 }
 
 .input {
-  @apply border-none bg-gray-200 text-gray-500 font-medium text-center rounded-lg px-6 flex-1;
+  @apply border-none bg-gray-200 font-medium text-center rounded-lg px-6 flex-1;
+  color: #a7a7a7;
 }
 
 .input::placeholder {
-  @apply text-gray-500 italic;
+  @apply italic;
+  color: #a7a7a7;
 }
 
 .input:focus {
