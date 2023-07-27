@@ -1,5 +1,5 @@
+import { getOutletsFromFirestore } from "@/api/outlets";
 import { getDistance } from "geolib";
-import { outlets } from "@/utils/outlets";
 
 const GET_OUTLET_DATA_INIT = "GET_OUTLET_DATA_INIT";
 const GET_OUTLET_DATA_SUCCESS = "GET_OUTLET_DATA_SUCCESS";
@@ -18,6 +18,7 @@ export const getOutlets = (currentLocation) => {
     });
 
     try {
+      const outlets = await getOutletsFromFirestore();
       const newOutlets = [...outlets];
 
       outlets.forEach((i, index) => {
@@ -41,7 +42,7 @@ export const getOutlets = (currentLocation) => {
       dispatch({
         type: GET_OUTLET_DATA_ERROR,
         payload: {
-          error,
+          err,
         },
       });
     }
@@ -61,6 +62,7 @@ export const setFilteredOutlets = (filteredOutlets) => {
 
 export const updateOutletDistance = (currentLocation) => {
   return async (dispatch, getState) => {
+    const outlets = getState().outlets.outlets;
     const newOutlets = [...outlets];
 
     outlets.forEach((i, index) => {
@@ -84,6 +86,7 @@ export const updateOutletDistance = (currentLocation) => {
 };
 
 const initialState = {
+  outlets: [],
   isLoading: false,
   list: [],
   queryList: [],
@@ -105,13 +108,15 @@ export const outletReducer = function (state = initialState, action) {
         loadError: null,
         list: [...action.payload],
         queryList: [...action.payload],
+        outlets: [...action.payload],
       };
     case GET_OUTLET_DATA_ERROR:
       return {
         ...state,
         list: [],
         queryList: [],
-        loadError: action.payload.error,
+        outlets: [],
+        loadError: action.payload.err,
         isLoading: false,
       };
     case UPDATE_OUTLET_DISTANCE:

@@ -1,3 +1,10 @@
 .container {
   @apply flex flex-row flex-wrap items-center justify-between;
 }
+
+.loading {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  padding: 10rem 0;
+}
