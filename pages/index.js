@@ -1,19 +1,47 @@
-import Header from "@/components/Header/Header";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getOutlets } from "@/store/outlets";
 import styles from "../styles/Index.module.css";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import BannerCarousel from "@/components/BannerCarousel/BannerCarousel";
 import Outlets from "@/components/Outlets/Outlets";
-import { useState } from "react";
+import LocationPickerWrapper from "@/components/LocationPickerWrapper/LocationPickerWrapper";
+import { locationDataSelector } from "@/selectors/location";
+import { getLocation } from "@/store/location";
+import HeaderWrapper from "@/components/Header/Header";
 
 const Index = () => {
+  const dispatch = useDispatch();
+  const { currentLocation } = useSelector(locationDataSelector);
   const [searchQuery, setSearchQuery] = useState("");
+  const [openLocationPicker, setOpenLocationPicker] = useState(false);
+
+  useEffect(() => {
+    if (!currentLocation) dispatch(getLocation());
+
+    if (currentLocation) {
+      dispatch(getOutlets(currentLocation));
+    }
+  }, [currentLocation]);
 
   return (
     <div className={styles.container}>
-      <Header />
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <BannerCarousel />
-      <Outlets />
+      <HeaderWrapper setOpenLocationPicker={setOpenLocationPicker} />
+      {openLocationPicker ? (
+        <LocationPickerWrapper
+          setOpenLocationPicker={setOpenLocationPicker}
+        />
+      ) : (
+        <>
+          <SearchBar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+          <BannerCarousel />
+          <Outlets />
+        </>
+      )}
     </div>
   );
 };

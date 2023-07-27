@@ -11,7 +11,7 @@ const OutletCard = ({ name, img, cuisine, distance }) => {
       <div className={styles.name}>{name}</div>
       <div className={styles.footer}>
         <div className={styles.footerText}>
-          {Math.round(distance / 1000, 1)}km
+          {(distance / 1000).toFixed(1)}km
         </div>
         <BsDot className={styles.dotIcon} />
         <div className={styles.footerText}>{cuisine}</div>
