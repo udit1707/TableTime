@@ -1,4 +1,3 @@
-import { combineReducers } from "@reduxjs/toolkit";
 import { getDistance } from "geolib";
 import { outlets } from "@/utils/outlets";
 
@@ -6,6 +5,7 @@ const GET_OUTLET_DATA_INIT = "GET_OUTLET_DATA_INIT";
 const GET_OUTLET_DATA_SUCCESS = "GET_OUTLET_DATA_SUCCESS";
 const GET_OUTLET_DATA_ERROR = "GET_OUTLET_DATA_ERROR";
 const FILTER_OUTLETS = "FILTER_OUTLETS";
+const UPDATE_OUTLET_DISTANCE = "UPDATE_OUTLET_DISTANCE";
 
 export const getOutlets = (currentLocation) => {
   return async (dispatch, getState) => {
@@ -21,13 +21,10 @@ export const getOutlets = (currentLocation) => {
       const newOutlets = [...outlets];
 
       outlets.forEach((i, index) => {
-        console.log(currentLocation);
-        console.log(currentLocation.coords);
-
         const distance = getDistance(
           {
-            latitude: currentLocation.coords.latitude,
-            longitude: currentLocation.coords.longitude,
+            latitude: currentLocation.lat,
+            longitude: currentLocation.lng,
           },
           {
             ...i.location,
@@ -62,6 +59,30 @@ export const setFilteredOutlets = (filteredOutlets) => {
   };
 };
 
+export const updateOutletDistance = (currentLocation) => {
+  return async (dispatch, getState) => {
+    const newOutlets = [...outlets];
+
+    outlets.forEach((i, index) => {
+      const distance = getDistance(
+        {
+          latitude: currentLocation.lat,
+          longitude: currentLocation.lng,
+        },
+        {
+          ...i.location,
+        }
+      );
+      newOutlets[index].distance = distance;
+    });
+
+    dispatch({
+      type: UPDATE_OUTLET_DISTANCE,
+      payload: newOutlets,
+    });
+  };
+};
+
 const initialState = {
   isLoading: false,
   list: [],
@@ -69,7 +90,7 @@ const initialState = {
   loadError: null,
 };
 
-const outletReducer = function (state = initialState, action) {
+export const outletReducer = function (state = initialState, action) {
   switch (action.type) {
     case GET_OUTLET_DATA_INIT:
       return {
@@ -93,6 +114,12 @@ const outletReducer = function (state = initialState, action) {
         loadError: action.payload.error,
         isLoading: false,
       };
+    case UPDATE_OUTLET_DISTANCE:
+      return {
+        ...state,
+        list: [...action.payload],
+        queryList: [...action.payload],
+      };
     case FILTER_OUTLETS:
       return {
         ...state,
@@ -103,9 +130,3 @@ const outletReducer = function (state = initialState, action) {
       return { ...state };
   }
 };
-
-const rootReducer = combineReducers({
-  outlets: outletReducer,
-});
-
-export default rootReducer;

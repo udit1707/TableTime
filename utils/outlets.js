@@ -7,7 +7,8 @@ export const outlets = [
         location: {
             latitude: 26.48156474101424, 
             longitude: 80.29997099753211
-        }
+        },
+        status: 'open'
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const outlets = [
         location: {
             latitude: 26.477606335652336, 
             longitude: 80.294613395802
-        }
+        },
+        status: 'open'
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const outlets = [
         location: {
             latitude: 26.479152484601922,  
             longitude: 80.2954287873807
-        }
+        },
+        status: 'open'
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ export const outlets = [
         location: {
             latitude: 26.478028887739598, 
             longitude: 80.29496744740852
-        }
+        },
+        status: 'open'
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ export const outlets = [
         location: {
             latitude: 26.477265411814184,  
             longitude: 80.2943773613976
-        }
+        },
+        status: 'open'
     },
     {
         id: 6,
@@ -57,6 +62,7 @@ export const outlets = [
         location: {
             latitude: 26.484499390385466,  
             longitude: 80.31841781813391
-        }
+        },
+        status: 'open'
     }
 ]
