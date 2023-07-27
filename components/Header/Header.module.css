@@ -1,35 +1,19 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  @apply flex flex-col items-start;
 }
 
 .label {
-  color: #a7a7a7;
-  font-weight: 300;
-  font-size: 1.3rem;
+  @apply text-gray-500 font-light text-lg;
 }
 
 .locationContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 18rem;
+  @apply flex items-center w-72;
 }
 
 .location {
-  flex: 1 0 0;
-  color: black;
-  font-weight: 500;
-  font-size: 1.6rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @apply flex-1 text-black font-medium text-xl overflow-hidden whitespace-nowrap overflow-ellipsis;
 }
 
 .icon {
-  font-weight: 500;
-  font-size: 1.6rem;
-  color: black;
-  cursor: pointer;
+  @apply font-medium text-xl text-black cursor-pointer;
 }

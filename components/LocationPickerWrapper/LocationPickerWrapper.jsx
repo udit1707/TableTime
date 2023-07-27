@@ -28,7 +28,7 @@ const Map = ({
 
   return (
     <GoogleMap
-      mapContainerStyle={{ height: "40rem", width: "100%" }}
+      mapContainerStyle={{ height: "100%", width: "100%" }}
       center={mapCenter}
       zoom={15}
       onClick={handleMarkerPositionChange}

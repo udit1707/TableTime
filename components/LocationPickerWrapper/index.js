@@ -1,1 +1,1 @@
-export { default } from "./LocationPicker";
+export { default } from "./LocationPickerWrapper";

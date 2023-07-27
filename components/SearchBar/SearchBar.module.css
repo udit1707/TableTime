@@ -1,38 +1,19 @@
 .searchBar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 1rem;
-  border-radius: 8px;
-  background-color: #f2f2f2;
-  padding: 1rem;
+  @apply flex flex-row items-center mt-4 rounded-lg bg-gray-200 p-4;
 }
 
 .icon {
-  font-size: 1.6rem;
-  color: #a7a7a7;
-  font-weight: 500;
+  @apply text-gray-500 text-xl font-medium;
 }
 
 .input {
-  border: none;
-  background-color: #f2f2f2;
-  color: #a7a7a7;
-  font-weight: 500;
-  text-align: center;
-  border-radius: 8px;
-  padding: 0 1.5rem;
-  flex: 1 0 0;
+  @apply border-none bg-gray-200 text-gray-500 font-medium text-center rounded-lg px-6 flex-1;
 }
 
 .input::placeholder {
-  color: #a7a7a7;
-  opacity: 1;
-  font-style: italic;
+  @apply text-gray-500 italic;
 }
 
 .input:focus {
-  outline: none;
-  background-color: #f2f2f2;
-  color: #a7a7a7;
+  @apply outline-none bg-gray-200 text-gray-500;
 }
