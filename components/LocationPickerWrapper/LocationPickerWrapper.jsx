@@ -17,8 +17,6 @@ const Map = ({
   setMapCenter,
 }) => {
   const handleMarkerPositionChange = useCallback((event) => {
-    console.log("clicking");
-    console.log(event.latLng.lat(), event.latLng.lng());
     const newPosition = {
       lat: event.latLng.lat(),
       lng: event.latLng.lng(),
